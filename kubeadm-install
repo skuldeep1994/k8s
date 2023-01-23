@@ -1,10 +1,10 @@
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
-echo "step1"
+echo "step1"  ( ignore this command )
 echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
-echo "kubeadm install"
+echo "kubeadm install" ( ignore this command )
 sudo apt update -y
 sudo apt -y install vim git curl wget kubelet=1.24.3-00 kubeadm=1.24.3-00 kubectl=1.24.3-00
-echo "memory swapoff"
+echo "memory swapoff"  ( ignore this command )
 sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
 sudo swapoff -a
 sudo modprobe overlay
@@ -41,5 +41,5 @@ sudo kubeadm init   --pod-network-cidr=10.244.0.0/16   --upload-certs --kubernet
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
-export KUBECONFIG=/etc/kubernetes/admin.conf
+export KUBECONFIG=/etc/kubernetes/admin.conf  (ignore this command)
 kubectl apply -f https://github.com/coreos/flannel/raw/master/Documentation/kube-flannel.yml
