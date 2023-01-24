@@ -30,7 +30,7 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 sudo apt update
 sudo apt install -y containerd.io
 mkdir -p /etc/containerd
-containerd config default>/etc/containerd/config.toml
+containerd config default | sudo tee /etc/containerd/config.toml
 sudo systemctl restart containerd
 sudo systemctl enable containerd   
 
